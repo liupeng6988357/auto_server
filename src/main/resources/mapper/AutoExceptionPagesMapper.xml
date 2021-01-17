@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.auto.plate.mapper.AutoExceptionPagesMapper">
+    <resultMap id="AutoExceptionPages" type="org.auto.plate.entity.AutoExceptionPages">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="caseId" column="caseid" jdbcType="INTEGER"/>
+        <result property="page" column="page" jdbcType="BLOB"/>
+    </resultMap>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into auto.auto_exception_pages(caseid, page)
+        values (#{caseId}, #{page})
+    </insert>
+
+    <select id="selectByCaseId" resultMap="AutoExceptionPages">
+        select * from auto.auto_exception_pages where caseid = #{caseId}
+    </select>
+
+    <delete id="deleteByCaseId">
+        delete from auto.auto_exception_pages where caseid = #{caseId}
+    </delete>
+</mapper>

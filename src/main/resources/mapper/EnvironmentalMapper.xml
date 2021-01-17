@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.auto.plate.mapper.EnvironmentalMapper">
+
+    <resultMap type="org.auto.plate.entity.Environmental" id="EnvironmentalMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="paramsname" column="paramsname" jdbcType="VARCHAR"/>
+        <result property="paramstype" column="paramstype" jdbcType="VARCHAR"/>
+        <result property="paramsvalue" column="paramsvalue" jdbcType="VARCHAR"/>
+        <result property="paramsdescription" column="paramsdescription" jdbcType="VARCHAR"/>
+        <result property="createtime" column="createtime" jdbcType="TIMESTAMP"/>
+        <result property="createby" column="createby" jdbcType="INTEGER"/>
+        <result property="updateby" column="updateby" jdbcType="INTEGER"/>
+        <result property="updatetime" column="updatetime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 分页查询参数列表-->
+    <select id="findParamsList" resultMap="EnvironmentalMap">
+        select * from environmental where paramsname like concat('%','${query}','%') limit #{firstNum}, #{pageSize}
+    </select>
+    <!-- 获取环境变量列表-->
+    <select id="findEnvironmentList" resultMap="EnvironmentalMap">
+         select * from environmental where paramstype = #{paramtype}
+    </select>
+
+</mapper>
