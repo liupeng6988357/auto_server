@@ -238,7 +238,7 @@ public class ElementOperateIml implements ElementOperate {
      */
     private WebDriver getChromeDriver(Integer model) {
         WebDriver driver = null;
-        String path = "D:\\Download\\chromedriver_win32\\chromedriver.exe";
+        String path = "/home/driver/chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         System.out.println(path);
         ChromeOptions chromeOptions = new ChromeOptions();
