@@ -43,6 +43,7 @@ public class ElementOperateIml implements ElementOperate {
         WebDriver driver = this.getDriver(model, browserType);
         logger.debug("*****auto_test_case_start*****");
         executeCaseLog.getExecuteCaseLogList().add(this.getCurrentTime() + "*****auto_test_case_start*****" + "</br>");
+        System.out.println(projectaddress);
         driver.get(projectaddress);
         try {
             for (int i = 0; i < elementList.size(); i++) {
@@ -237,7 +238,7 @@ public class ElementOperateIml implements ElementOperate {
      */
     private WebDriver getChromeDriver(Integer model) {
         WebDriver driver = null;
-        String path = "/home/driver/chromedriver.exe";
+        String path = "D:\\Download\\chromedriver_win32\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         System.out.println(path);
         ChromeOptions chromeOptions = new ChromeOptions();
